@@ -1,0 +1,93 @@
+/* PLASTIC HEARTS · INSTAGRAM · PERFIL, AVISOS Y PUBLICACIONES */
+
+/* BASE: COLOR DEL AUTOR Y RESPALDO DEL FORO */
+:root { --ig-forum-color: var(--ph-pink,#f3b1e9); }
+#phpbb .ph-ig {
+  --ig-color: var(--ph-post-color,var(--ig-forum-color));
+  --ig-ink: light-dark(color-mix(in srgb,var(--ig-color) 65%,#202020),var(--ig-color));
+  --ig-bg: var(--ph-surface,#282828);
+  --ig-card: var(--ph-card,#414141);
+  --ig-text: var(--ph-text,#eeeeec);
+  --ig-muted: var(--ph-muted,#cecece);
+  --ig-line: var(--ph-line,#555);
+  --ig-tint: color-mix(in srgb,var(--ig-color) 12%,var(--ig-card));
+  --fgc: var(--ig-ink);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 580px;
+  margin: 22px auto;
+  border: 1px solid color-mix(in srgb,var(--ig-color) 24%,var(--ig-line));
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--ig-bg);
+  color: var(--ig-text);
+  font: 12px/1.7 var(--ph-font,Poppins,sans-serif);
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+#phpbb .ph-ig * { box-sizing: border-box; min-width: 0; }
+#phpbb .ph-ig p { margin: 0 0 10px; padding: 0; }
+#phpbb .ph-ig p:last-child { margin-bottom: 0; }
+#phpbb .ph-ig a { color: inherit; text-decoration: none; }
+#phpbb .ph-ig a:focus-visible { outline: 2px solid var(--ig-ink); outline-offset: 3px; }
+#phpbb .ph-ig i { font-size: 21px; }
+
+/* PERFIL: AVATAR, BIOGRAFÍA Y CIFRAS */
+#phpbb .ph-ig .ig-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 16px 21px; border-bottom: 1px solid var(--ig-line); background: linear-gradient(110deg,var(--ig-tint),var(--ig-bg)); }
+#phpbb .ph-ig .ig-brand { display: flex; align-items: center; gap: 10px; font: 29px/1.2 LostaMasta_Thin,Georgia,serif; }
+#phpbb .ph-ig .ig-top>i { color: var(--ig-ink); }
+#phpbb .ph-ig .ig-overview { padding: 22px; }
+#phpbb .ph-ig .ig-profile-row { display: grid; grid-template-columns: 84px minmax(0,1fr); align-items: center; gap: 20px; }
+#phpbb .ph-ig .ig-avatar { width: 84px; height: 84px; padding: 4px; border-radius: 50%; background: linear-gradient(135deg,var(--ig-color),color-mix(in srgb,var(--ig-color) 22%,var(--ig-card))); }
+#phpbb .ph-ig .ig-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; border: 3px solid var(--ig-bg); border-radius: 50%; }
+#phpbb .ph-ig .ig-handle-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+#phpbb .ph-ig .ig-handle { font-size: 16px; font-weight: 600; }
+#phpbb .ph-ig .ig-follow { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 34px; padding: 7px 15px; border: 1px solid color-mix(in srgb,var(--ig-color) 45%,var(--ig-line)); border-radius: 10px; background: var(--ig-tint); color: var(--ig-ink); font-size: 11px; font-weight: 600; transition: background .2s,border-color .2s; }
+#phpbb .ph-ig .ig-follow i { font-size: 15px; }
+#phpbb .ph-ig .ig-follow:hover { border-color: var(--ig-ink); background: color-mix(in srgb,var(--ig-color) 23%,var(--ig-card)); }
+#phpbb .ph-ig .ig-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-top: 16px; }
+#phpbb .ph-ig .ig-stat { color: var(--ig-muted); font-size: 9px; text-align: center; }
+#phpbb .ph-ig .ig-number { display: block; color: var(--ig-text); font-size: 15px; font-weight: 600; line-height: 1.4; }
+#phpbb .ph-ig .ig-bio { margin-top: 18px; font-size: 11px; }
+#phpbb .ph-ig .ig-display { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 600; }
+#phpbb .ph-ig .ig-gallery-label { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-top: 1px solid var(--ig-line); color: var(--ig-ink); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; }
+#phpbb .ph-ig .ig-gallery-label i { font-size: 17px; }
+
+/* SEIS FOTOS: TRES COLUMNAS Y DOS FILAS */
+#phpbb .ph-ig .ig-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 4px; padding: 0 8px 8px; }
+#phpbb .ph-ig .ig-cell { aspect-ratio: 1; overflow: hidden; background: var(--ig-card); }
+#phpbb .ph-ig .ig-cell img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8); transition: transform .35s,filter .35s; }
+#phpbb .ph-ig .ig-cell:hover img { transform: scale(1.04); filter: saturate(1); }
+
+/* NUEVO SEGUIDOR Y SIGUIENDO */
+#phpbb .ph-ig.ig-notice { max-width: 500px; padding: 18px; }
+#phpbb .ph-ig .ig-notice-row { display: grid; grid-template-columns: 50px minmax(0,1fr) 34px; align-items: center; gap: 13px; }
+#phpbb .ph-ig .ig-mini-avatar { display: block; width: 50px; height: 50px; object-fit: cover; border: 1px solid var(--ig-ink); border-radius: 50%; }
+#phpbb .ph-ig .ig-notice-title { margin-bottom: 4px; font: 25px/1.25 LostaMasta_Thin,Georgia,serif; }
+#phpbb .ph-ig .ig-notice-text { font-size: 11px; }
+#phpbb .ph-ig .ig-user { color: var(--ig-ink); font-weight: 600; }
+#phpbb .ph-ig .ig-time { display: block; margin-top: 5px; color: var(--ig-muted); font-size: 9px; }
+#phpbb .ph-ig .ig-notice-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--ig-tint); color: var(--ig-ink); }
+
+/* PUBLICACIÓN INDIVIDUAL */
+#phpbb .ph-ig.ig-post { max-width: 500px; }
+#phpbb .ph-ig .ig-post-head { display: flex; align-items: center; gap: 11px; padding: 14px 17px; }
+#phpbb .ph-ig .ig-post-head .ig-mini-avatar { width: 38px; height: 38px; }
+#phpbb .ph-ig .ig-post-head>i { margin-left: auto; color: var(--ig-ink); }
+#phpbb .ph-ig .ig-location { color: var(--ig-muted); font-size: 9px; }
+#phpbb .ph-ig .ig-post-picture { aspect-ratio: 1; background: var(--ig-card); }
+#phpbb .ph-ig .ig-post-picture img { display: block; width: 100%; height: 100%; object-fit: cover; }
+#phpbb .ph-ig .ig-post-body { padding: 15px 17px 18px; }
+#phpbb .ph-ig .ig-actions { display: flex; align-items: center; gap: 13px; margin-bottom: 12px; color: var(--ig-ink); }
+#phpbb .ph-ig .ig-actions i:last-child { margin-left: auto; }
+#phpbb .ph-ig .ig-likes { margin-bottom: 7px; font-size: 11px; font-weight: 600; }
+#phpbb .ph-ig .ig-caption { font-size: 11px; }
+#phpbb .ph-ig .ig-comments { display: inline-block; margin-top: 8px; color: var(--ig-muted); font-size: 10px; }
+#phpbb .ph-ig .ig-comments:hover { color: var(--ig-ink); text-decoration: underline; }
+
+/* PREFERENCIA DE MOVIMIENTO · SIN REGLAS MÓVILES */
+@media(prefers-reduced-motion:reduce) {
+  #phpbb .ph-ig .ig-follow,
+  #phpbb .ph-ig .ig-cell img { transition: none; }
+  #phpbb .ph-ig .ig-cell:hover img { transform: none; }
+}
